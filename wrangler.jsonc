@@ -1,0 +1,40 @@
+{
+  // Infrastructure bindings and non-sensitive config ONLY.
+  // No social platform credentials belong here. Ever.
+  // The single mandatory secret is SECRET_KEY, set with:
+  //   npx wrangler secret put SECRET_KEY
+  "name": "openpost",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+
+  "vars": {
+    "APP_ENV": "production",
+    "APP_URL": "https://openpost.truehannan.workers.dev"
+  },
+
+  // Dashboard UI (HTML/CSS/JS). Served through the Worker so it can attach a strict CSP.
+  "assets": { "directory": "./public", "binding": "ASSETS" },
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "openpost",
+      "database_id": "8b46f91e-e6c5-4d97-ae55-98361b27e499",
+      "migrations_dir": "migrations"
+    }
+  ],
+
+  "r2_buckets": [
+    { "binding": "MEDIA", "bucket_name": "openpost" }
+  ],
+
+  "queues": {
+    "producers": [
+      { "binding": "PUBLISH_QUEUE", "queue": "publish-queue" },
+      { "binding": "AUTOMATION_QUEUE", "queue": "automation-queue" },
+      { "binding": "WEBHOOK_QUEUE", "queue": "webhook-queue" },
+      { "binding": "NOTIFICATION_QUEUE", "queue": "notification-queue" }
+    ]
+  }
+}

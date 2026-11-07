@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>API Credentials · Settings</title>
+  <link rel="stylesheet" href="/dashboard.css">
+</head>
+<body>
+  <header class="top">
+    <nav aria-label="Breadcrumb" class="crumbs">Settings <span aria-hidden="true">›</span> Integrations <span aria-hidden="true">›</span> <strong>API Credentials</strong></nav>
+    <h1>API Credentials</h1>
+    <p class="lede">Provider app credentials are encrypted before they are stored. Saved secrets are never shown again; leave a field blank to keep its current value.</p>
+    <div id="scope-bar" class="scope-bar"></div>
+  </header>
+  <main id="app" aria-live="polite" aria-busy="true"><p class="muted">Loading…</p></main>
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+  <dialog id="dlg"></dialog>
+  <script src="/dashboard.js" defer></script>
+</body>
+</html>
